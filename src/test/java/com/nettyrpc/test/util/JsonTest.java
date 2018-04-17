@@ -1,14 +1,13 @@
 package com.nettyrpc.test.util;
 
+import java.util.UUID;
+
 import com.nettyrpc.protocol.JsonUtil;
 import com.nettyrpc.protocol.RpcRequest;
 import com.nettyrpc.protocol.RpcResponse;
 import com.nettyrpc.protocol.SerializationUtil;
 import com.nettyrpc.test.client.Person;
 import com.nettyrpc.test.server.HelloServiceImpl;
-
-import java.io.IOException;
-import java.util.UUID;
 
 /**
  * Created by jsc on 2016-03-10.
@@ -31,7 +30,8 @@ public class JsonTest {
     }
 
 
-    private static void TestJsonSerialize(){
+    @SuppressWarnings("unused")
+	private static void TestJsonSerialize(){
         RpcRequest request = new RpcRequest();
         request.setClassName(HelloServiceImpl.class.getName());
         request.setMethodName(HelloServiceImpl.class.getDeclaredMethods()[0].getName());

@@ -22,13 +22,14 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
+@SuppressWarnings("static-access")
 @ContextConfiguration(locations = "classpath:client-spring.xml")
 public class ServiceTest {
 
     @Autowired
     private RpcClient rpcClient;
 
-    @Test
+	@Test
     public void helloTest1() {
         HelloService helloService = rpcClient.create(HelloService.class);
         String result = helloService.hello("World");
@@ -74,7 +75,8 @@ public class ServiceTest {
         Assert.assertEquals("Hello! Yong Huang", result.get());
     }
 
-    @Test
+    @SuppressWarnings("unchecked")
+	@Test
     public void helloPersonFutureTest1() throws ExecutionException, InterruptedException {
         IAsyncObjectProxy helloPersonService = rpcClient.createAsync(PersonService.class);
         int num = 5;

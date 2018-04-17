@@ -22,7 +22,8 @@ public class Benchmark {
         //benchmark for sync call
         for (int i = 0; i < threadNum; ++i) {
             threads[i] = new Thread(new Runnable() {
-                @Override
+                @SuppressWarnings("static-access")
+				@Override
                 public void run() {
                     for (int i = 0; i < requestNum; i++) {
                         final HelloService syncClient = rpcClient.create(HelloService.class);
