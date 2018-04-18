@@ -11,7 +11,7 @@ public class Benchmark {
 
     public static void main(String[] args) throws InterruptedException {
 
-        ServiceDiscovery serviceDiscovery = new ServiceDiscovery("10.245.247.105:2181");
+        ServiceDiscovery serviceDiscovery = new ServiceDiscovery("192.168.1.200:2181");
         final RpcClient rpcClient = new RpcClient(serviceDiscovery);
 
         int threadNum = 10;
@@ -40,7 +40,7 @@ public class Benchmark {
         }
         long timeCost = (System.currentTimeMillis() - startTime);
         String msg = String.format("Sync call total-time-cost:%sms, req/s=%s", timeCost, ((double) (requestNum * threadNum)) / timeCost * 1000);
-        System.out.println(msg);
+        System.err.println(msg);
 
         rpcClient.stop();
     }

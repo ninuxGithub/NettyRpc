@@ -14,8 +14,8 @@ import java.util.List;
 public class PersonServiceImpl implements PersonService {
 
     @Override
-    public List<Person> GetTestPerson(String name, int num) {
-        List<Person> persons = new ArrayList<>(num);
+    public List<Person> GetTestPerson(String name, long num) {
+        List<Person> persons = new ArrayList<>();
         for (int i = 0; i < num; ++i) {
             persons.add(new Person(Integer.toString(i), name));
         }

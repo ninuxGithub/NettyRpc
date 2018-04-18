@@ -79,7 +79,7 @@ public class ServiceTest {
 	@Test
     public void helloPersonFutureTest1() throws ExecutionException, InterruptedException {
         IAsyncObjectProxy helloPersonService = rpcClient.createAsync(PersonService.class);
-        int num = 5;
+        long num = 50000000000000l;
         RPCFuture result = helloPersonService.call("GetTestPerson", "xiaoming", num);
         List<Person> persons = (List<Person>) result.get();
         List<Person> expectedPersons = new ArrayList<>();
